@@ -12,7 +12,7 @@ const nine = $('#nine')
 
 const date = moment().format('dddd: MMMM Do, YYYY')
 const time = moment().format('h:mm:ss a')
-const hourOfDay = moment().format('h')
+const hourOfDay = moment().hour()
 const amOrPM = moment().format('a')
 console.log(hourOfDay, amOrPM)
 
