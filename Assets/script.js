@@ -52,6 +52,8 @@ $('.save').on('click', function(e) {
     
     console.log(`${localKey}: ${localText}`)
     localStorage.setItem(localKey, localText)
+
+    $(this).text('Saved')
 })
 
 $('.textbox').each(function() {
