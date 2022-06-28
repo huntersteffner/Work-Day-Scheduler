@@ -12,31 +12,12 @@ const nine = $('#nine')
 
 const date = moment().format('dddd: MMMM Do, YYYY')
 const time = moment().format('h:mm:ss a')
-const hourOfDay = moment().hour()
-const amOrPM = moment().format('a')
-console.log(hourOfDay, amOrPM)
+const hourOfDay = parseInt(moment().hour())
 
 console.log()
 
 dateEl.text(date + ' at ' + time)
 
-// $(am8).each(()=> {
-//     if($(this).children('.hour').html() === '<h2>test</h2>') {
-//         console.log('It works')
-//     }
-// })
-
-// const amOrPmArr = amOrPmEl.split('')
-
-// const hourRow = $(am8).children('.hour')
-// const hourOfRow = nine.text().split('')
-// console.log(hourOfRow[0])
-
-// if(hourOfRow[0] === hourOfDay) {
-//     console.log('It matches')
-// } else {
-//     console.log('it does not match')
-// }
 
 console.log(moment().hour())
 
@@ -53,4 +34,30 @@ $('.hour-marker').each(function() {
     } else {
         $(curId).addClass('past')
     }
+})
+
+// $('.save').each(function(e) {
+//     e.target.on('click', function() {
+//         const curSave = $(this).attr('id')
+//         console.log(curSave)
+
+//     })
+// })
+
+$('.save').on('click', function(e) {
+    const curSave = $(this).attr('id')
+
+    const localKey = $(this).parent().attr('id')
+    const localText = $(this).siblings('textarea').val()
+    
+    console.log(`${localKey}: ${localText}`)
+    localStorage.setItem(localKey, localText)
+})
+
+$('.textbox').each(function() {
+    const curKey = $(this).parent().attr('id')
+    // console.log(curKey)
+    const savedText = localStorage.getItem(curKey)
+    console.log(savedText)
+    $(this).text(savedText)
 })
