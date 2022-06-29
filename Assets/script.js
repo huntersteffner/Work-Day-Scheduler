@@ -28,9 +28,9 @@ $('.saveBtn').on('click', function() {
     $(this).text('Saved')
 })
 
+// Pull from local storage when page loads
 $('.textbox').each(function() {
     const curKey = $(this).parent().attr('id')
     const savedText = localStorage.getItem(curKey)
-    console.log(savedText)
     $(this).text(savedText)
 })
